@@ -11,17 +11,20 @@ session_start();
 
 //This page require the var $pageId to be correctly set (see classes/GlobalValue.php, PAGES_ARRAY)
 
-/*Session var possible :
-userId : Id in the database, or null if disconnected
+/*Session vars possible :
+userId : Id of the user in the database, or null if disconnected
 
 */
+
+//TODO : Redirect to the login page if required
 
 // To load the classes automaticaly
 spl_autoload_register(function ($class) {
     include_once "classes/$class.php";
 });
 
-$isConnected = $_SESSION["userID"] != null;
+//Todo : Change that to the kind of user we are (student, teacher, aadmin, ...)
+$isConnected = (isset($_SESSION["userID"]) && $_SESSION["userID"] != null);
 
 ?>
 <html lang="fr">
@@ -38,7 +41,7 @@ $isConnected = $_SESSION["userID"] != null;
 
 
         <link type="text/css" href="resources/css/common.css" rel="stylesheet">
-        <link href="resources/image/book-256.ico" rel="icon">
+        <link href="resources/image/book-256    .ico" rel="icon">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,35 +53,31 @@ $isConnected = $_SESSION["userID"] != null;
     </head>
     <body>
         <header>
-            <h1><?php echo GlobalValue::PAGES_ARRAY[$pageId][0] ?></h1>
+            <h1><?php echo GlobalValue::SITE_TITLE . " - " . GlobalValue::PAGES_ARRAY[$pageId][0] ?></h1>
         </header>
-        <nav>
-            <a href="/"><?php echo GlobalValue::SITE_TITLE ?></a>
-            <ul>
-                <li <?php echo $pageId === 0 ? 'class="active"' : '' ?>><a
-                        href=<?php echo '"' . GlobalValue::PAGES_ARRAY[0][0] . '">' . GlobalValue::PAGES_ARRAY[0][0] ?></a>
-                </li>
-                <li <?php echo $pageId === 1 ? 'class="active"' : '' ?>><a
-                        href=<?php echo '"' . GlobalValue::PAGES_ARRAY[1][1] . '">' . GlobalValue::PAGES_ARRAY[1][0] ?></a>
-                </li>
-
+        <nav class="navbar navbar-default">
+            <a class="navbar-header" href="/"><?php echo GlobalValue::SITE_TITLE ?></a>
+            <ul class="navbar-nav">
                 <?php
+                //Go through all the listed pages
+                for ($i = 0; $i < count(GlobalValue::PAGES_ARRAY); $i++) {
+                    //TODO : Check permissions to display the link or no
+                    //Echo a li set to active if the page is currently selected containing the link of the page and the title of the page as text
+                    echo "<li " . ($pageId === $i ? 'class="active"' : '') . '><a href="' . GlobalValue::PAGES_ARRAY[$i][1] . '">' . GlobalValue::PAGES_ARRAY[$i][0] . "</a></li>";
+                }
+
+                /* Display this page only if the user is connected
                 if ($isConnected) {
                     echo '<li' . ($pageId === 2 ? ' class="active"' : '') . '><a href="' . GlobalValue::PAGES_ARRAY[2][1] . '">' . GlobalValue::PAGES_ARRAY[2][0] . '</a></li>';
                 }
+                */
                 ?>
             </ul>
 
-            <ul>
-                <?php
-                if ($isConnected) {
-                    echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>';
-                    echo '<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>';
-                } else {
-                    echo '<li><a href="/Inscription"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>';
-                    echo '<li><a href="/login?previousPageID=' . $pageId . '"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>';
-                }
-                ?>
-            </ul>
+
+            <?php /*Todo : Logout button ?
+            <li ><a href = "/logout" ><span class="glyphicon glyphicon-log-out" ></span > Déconnexion</a ></li >
+             */
+            ?>
         </nav>
         <div class="content">
