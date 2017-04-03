@@ -1,5 +1,5 @@
 Options -MultiViews
-ErrorDocument 404 /src/php/404Error.php
+ErrorDocument 404 /src/php/Erreur404.php
 
 DirectoryIndex src/php/Accueil.php
 

@@ -5,18 +5,14 @@ Date    : 27.03.2017
 Summary :
 */
 //TODO (This page is only a copy paste from another project of mine
-//$pageId = ;
+$pageId = 1;
 require_once("before.php");
 
 //check if the user is already connected
-if (isset($_SESSION["userID"]) && $_SESSION["userID"] != null) {
-    $_SESSION["mustShowPopup"] = true;
-    // redirect to the previous page, or the index page if none is inputed
-    if (isset($_GET["previousPageID"])) {
-        header("location: /" . GlobalValue::PAGES_ARRAY[$_GET["previousPageID"]][1]);
-    } else {
-        header("location: /");
-    }
+if ($isConnected) {
+    // redirect to the index page
+    header("location: accueil");
+
 }
 
 //check if there's an attempt to login
@@ -27,14 +23,11 @@ if (isset($_POST["email"]) && isset($_POST["pswd"])) {
 
     if ($userID != null) {
         $_SESSION["userID"] = $userID;
-        $_SESSION["mustShowPopup"] = true;
 
-        // redirect to the previous page, or the index page if none is inputed
-        if (isset($_GET["previousPageID"])) {
-            header("location: /" . GlobalValue::PAGES_ARRAY[$_GET["previousPageID"]][1]);
-        } else {
-            header("location: /");
-        }
+        // redirect to the index page
+
+        header("location: accueil");
+
     } else {
         //if not, display an error
         ?>
@@ -55,7 +48,9 @@ if (isset($_POST["email"]) && isset($_POST["pswd"])) {
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input id="email" type="text" class="form-control" name="email"
                                placeholder="Email"
-                            <?php echo(isset($_POST["email"]) && $_POST["email"] != "" ? 'value="' . $_POST["email"] . '"' : "") ?>
+                            <?php
+                            //Set the email back if it was already previously inputed
+                            echo(isset($_POST["email"]) && $_POST["email"] != "" ? 'value="' . $_POST["email"] . '"' : "") ?>
                                required>
                     </div>
                     <div class="input-group">
