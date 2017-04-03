@@ -1,7 +1,8 @@
 <?php
-//Reset the session and redirect to the index page
+//Reset the session and redirect to the login page
 session_start();
 $_SESSION = Array();
-$_SESSION["mustShowPopup"] = true;
 
-header("location: /");
+require_once("classes/GlobalValue.php");
+
+header("Location: " . GlobalValue::PAGES_ARRAY[GlobalValue::LOGIN_PAGE][1]);
