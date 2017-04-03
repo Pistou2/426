@@ -2,7 +2,24 @@
 include "fpdf.php";
 
 $data = $_POST;
-$newfile = utf8_decode($data['name']).'-'.date('d-m-y').'.pdf';
+
+$count = 0;
+settype($login,"string");
+ $i = 0;
+        while ($i < mb_strlen($data['name'], "UTF-8")):
+				if($i < 8)
+				{
+					$login .= $data['name'][$i];					
+				}
+				$i++;
+        endwhile;
+ $i = 0;
+        while ($i < 2):
+				$login .= $data['firstname'][$i];
+            $i++;
+        endwhile;
+		$login = strtolower($login);
+$newfile = utf8_decode($login).'-'.date('d-m-y').'.pdf';
 $location = "F:\426\demandeconge";
 $pdf = new FPDF();
 $pdf->AddPage();
@@ -16,5 +33,5 @@ $pdf->SetX(60);
 $pdf->Write(120,utf8_decode($data['return']));
 $pdf->SetXY(60,100);
 $pdf->MultiCell(100,5,$data["cause"]);
-$pdf->Output();
+$pdf->Output("F",$newfile);
 ?>
