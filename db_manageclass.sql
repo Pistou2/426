@@ -12,7 +12,7 @@
 -- -----------------------------------------------------------
 
 -- Deletes database if it already exists and (re)creates it.
-DROP DATABASE IF EXISTS `db_manageclass``;
+DROP DATABASE IF EXISTS `db_manageclass`;
 CREATE DATABASE IF NOT EXISTS `db_manageclass` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `db_manageclass`;
 
