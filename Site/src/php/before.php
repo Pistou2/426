@@ -55,25 +55,23 @@ $isConnected = (isset($_SESSION["userID"]) && $_SESSION["userID"] != null);
         <header>
             <h1><?php echo GlobalValue::SITE_TITLE . " - " . GlobalValue::PAGES_ARRAY[$pageId][0] ?></h1>
         </header>
+
+        <!--Bar de navigation-->
         <nav class="navbar navbar-default">
-            <a class="navbar-header" href="/"><?php echo GlobalValue::SITE_TITLE ?></a>
-            <ul class="navbar-nav">
-                <?php
-                //Go through all the listed pages
-                for ($i = 0; $i < count(GlobalValue::PAGES_ARRAY); $i++) {
-                    //TODO : Check permissions to display the link or no
-                    //Echo a li set to active if the page is currently selected containing the link of the page and the title of the page as text
-                    echo "<li " . ($pageId === $i ? 'class="active"' : '') . '><a href="' . GlobalValue::PAGES_ARRAY[$i][1] . '">' . GlobalValue::PAGES_ARRAY[$i][0] . "</a></li>";
-                }
+            <div class="container-fluid">
+                <!--<a class="navbar-header" href="/"><?php echo GlobalValue::SITE_TITLE ?></a>-->
+                <ul class="nav navbar-nav">
 
-                /* Display this page only if the user is connected
-                if ($isConnected) {
-                    echo '<li' . ($pageId === 2 ? ' class="active"' : '') . '><a href="' . GlobalValue::PAGES_ARRAY[2][1] . '">' . GlobalValue::PAGES_ARRAY[2][0] . '</a></li>';
-                }
-                */
-                ?>
-            </ul>
-
+                    <?php
+                    //Go through all the listed pages
+                    for ($i = 0; $i < count(GlobalValue::PAGES_ARRAY); $i++) {
+                        //TODO : Check permissions to display the link or no
+                        //Echo a li set to active if the page is currently selected containing the link of the page and the title of the page as text
+                        echo "<li " . ($pageId === $i ? 'class="active"' : '') . '><a href="' . GlobalValue::PAGES_ARRAY[$i][1] . '">' . GlobalValue::PAGES_ARRAY[$i][0] . "</a></li>";
+                    }
+                    ?>
+                </ul>
+            </div>
 
             <?php /*Todo : Logout button ?
             <li ><a href = "/logout" ><span class="glyphicon glyphicon-log-out" ></span > Déconnexion</a ></li >

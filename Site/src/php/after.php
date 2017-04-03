@@ -10,12 +10,6 @@ Summary :
 
         <footer>
             <p>Réalisé par des Gens Bons dans une École Très Mature à Lausanne.</p>
-            <p>Contacts :</p>
-            <p><a href="mailto:balmorira@etml.educanet2.ch">balmorira@etml.educanet2.ch</a>
-            <p><a href="mailto:dossantoru@etml.educanet2.ch">dossantoru@etml.educanet2.ch</a>
-            <p><a href="mailto:fasanoan@etml.educanet2.ch">fasanoan@etml.educanet2.ch</a>
-            <p><a href="mailto:merkya@etml.educanet2.ch">merkya@etml.educanet2.ch</a></p>
-            <p><a href="mailto:santosolan@etml.educanet2.ch">santosolan@etml.educanet2.ch</a>
         </footer>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

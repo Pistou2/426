@@ -2,5 +2,36 @@
 ETML
 Author: Merk Yann
 Date: 27.03.2017
-Summary: 
+Summary:
 */
+
+*{
+    /*Force la supprétion des marges*/
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/*--Bootstrap Elements--*/
+
+.navbar{
+    background-color: #c80001;
+}
+
+.active{
+    background-color: #0f0f0f;
+}
+
+/*--Classic Elements--*/
+
+body{
+    background-color: #e2e2e2;
+}
+
+header, footer{
+    background-color: #ff4b3f;
+}
+
+.content{
+    background-color: white;
+    margin: 0 3% !important;
+}

@@ -10,5 +10,6 @@ Summary : Index page
 
 <p>Bonjour</p>
 
+
 <?php
     require_once ("after.php");

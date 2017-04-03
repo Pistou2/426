@@ -21,5 +21,5 @@ class GlobalValue
     4 : You need to be connected and be the owner of that page (personal page, for i.e. students)
     42 : You need to be connected and be an Administrator
     */
-    const PAGES_ARRAY = [["Accueil", "accueil", 1], ["Login", "login", 0]];
+    const PAGES_ARRAY = [["Accueil", "accueil", 1], ["Login", "login", 0] , ["Index","Index",2]];
 }
