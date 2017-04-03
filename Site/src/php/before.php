@@ -18,7 +18,7 @@ userId : Id of the user in the database, or null if disconnected
 
 //TODO : Redirect to the login page if required
 
-// To load the classes automaticaly
+// To load the classes automatically
 spl_autoload_register(function ($class) {
     include_once "classes/$class.php";
 });
@@ -41,7 +41,7 @@ $isConnected = (isset($_SESSION["userID"]) && $_SESSION["userID"] != null);
 
 
         <link type="text/css" href="resources/css/common.css" rel="stylesheet">
-        <link href="resources/image/book-256    .ico" rel="icon">
+        <link href="resources/image/book-256.ico" rel="icon">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
