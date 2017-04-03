@@ -23,9 +23,29 @@
 			<div class="panel-body">
 				<form action="genFree.php" method="post">
 				    <div class="form-inline">
-						<label for="title">Nom </label>
+						<label for="name">Nom </label>
 						<input type="text" class="form-control" id="name" name="name">
 				    </div>
+					<div class="form-inline">
+						<label for="firstname">Prénom </label>
+						<input type="text" class="form-control" id="firstname" name="firstname">
+				    </div>
+					<div class="form-inline">
+						<label for="class">Classe </label>
+						<input type="text" class="form-control" id="class" name="class">
+				    </div>
+					<div class="form-inline">
+						<label for="start">Jour de l'absence -> lundi 13 mars </label>
+						<input type="text" class="form-control" id="start" name="start">
+				    </div>
+					<div class="form-inline">
+						<label for="return">Jour du retour -> lundi 13 mars </label>
+						<input type="text" class="form-control" id="return" name="return">
+				    </div>
+					<div class="form-inline">
+						<label for="cause">Motif</label>
+						<textarea rows="2" cols="100" class="form-control" id="cause" name="cause" maxlength="200"></textarea>
+					</div>
 				    <button type="submit" class="btn btn-success">Valider</button>
 					<button type="reset" class="btn btn-danger">Vider</button>
 				</form>
