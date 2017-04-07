@@ -1,0 +1,7 @@
+Salade	50	m
+Tomate	2	gm
+Patate	3	g
+fraise	78	j
+carote	92	kg/dm^3
+ananas	12	pouces
+jambon	3500	l
