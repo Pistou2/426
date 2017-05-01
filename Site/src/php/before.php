@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <!--
 ETML
@@ -56,43 +57,46 @@ if (!$isConnected && GlobalValue::PAGES_ARRAY[$pageId][2] != 0) {
 
     </head>
     <body>
-        <header>
-            <h1><?php echo GlobalValue::SITE_TITLE . " - " . GlobalValue::PAGES_ARRAY[$pageId][0] ?></h1>
-        </header>
+	
+		<div id="top">
+			<header>
+				<h1><?php echo GlobalValue::SITE_TITLE . " - " . GlobalValue::PAGES_ARRAY[$pageId][0] ?></h1>
+			</header>
 
 
-        <?php
-        //Only show the navbar IF the user is connected
-        if ($isConnected) {
-            ?>
-            <!--Bar de navigation-->
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <!--<a class="navbar-header" href="/"><?php echo GlobalValue::SITE_TITLE ?></a>-->
-                    <ul class="nav navbar-nav">
+			<?php
+			//Only show the navbar IF the user is connected
+			if ($isConnected) {
+				?>
+				<!--Bar de navigation-->
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<!--<a class="navbar-header" href="/"><?php echo GlobalValue::SITE_TITLE ?></a>-->
+						<ul class="nav navbar-nav">
 
-                        <?php
-                        //Go through all the listed pages
-                        for ($i = 0; $i < count(GlobalValue::PAGES_ARRAY); $i++) {
-                            //TODO : Check if have the autorisation to reach that page or no
-                            //Do not list the login or the 404 page in the nav
-                            if ($i == GlobalValue::LOGIN_PAGE || $i == GlobalValue::PAGE_404) {
+							<?php
+							//Go through all the listed pages
+							for ($i = 0; $i < count(GlobalValue::PAGES_ARRAY); $i++) {
+								//TODO : Check if have the autorisation to reach that page or no
+								//Do not list the login or the 404 page in the nav
+								if ($i == GlobalValue::LOGIN_PAGE || $i == GlobalValue::PAGE_404) {
 
-                            } else {
-                                //Echo a li set to active if the page is currently selected containing the link of the page and the title of the page as text
-                                echo "<li " . ($pageId === $i ? 'class="active"' : '') . '><a href="' . GlobalValue::PAGES_ARRAY[$i][1] . '">' . GlobalValue::PAGES_ARRAY[$i][0] . "</a></li>";
-                            }
-                        }
-                        ?>
-                    </ul>
-                </div>
+								} else {
+									//Echo a li set to active if the page is currently selected containing the link of the page and the title of the page as text
+									echo "<li " . ($pageId === $i ? 'class="active"' : '') . '><a href="' . GlobalValue::PAGES_ARRAY[$i][1] . '">' . GlobalValue::PAGES_ARRAY[$i][0] . "</a></li>";
+								}
+							}
+							?>
+						</ul>
+					</div>
 
-                <?php /*Todo : Logout button ?
-            <li ><a href = "logout" ><span class="glyphicon glyphicon-log-out" ></span > Déconnexion</a ></li >
-             */
-                ?>
-            </nav>
-            <?php
-        }
-        ?>
+					<?php /*Todo : Logout button ?
+				<li ><a href = "logout" ><span class="glyphicon glyphicon-log-out" ></span > Déconnexion</a ></li >
+				 */
+					?>
+				</nav>
+				<?php
+			}
+			?>
+		</div>
         <div class="content">

@@ -2,36 +2,98 @@
 ETML
 Author: Merk Yann
 Date: 27.03.2017
-Summary:
+Summary: CSS
 */
 
 *{
-    /*Force la supprétion des marges*/
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
 }
 
 /*--Bootstrap Elements--*/
 
+/*Bar de navigation*/
 .navbar{
-    background-color: #c80001;
+    background-color: #af0001;
+
+    border-radius: 0;
+
+    /*Radius bas*/
+    /*border-radius: 0 0 5px 5px;*/
 }
 
-.active{
-    background-color: #0f0f0f;
+/*Élèment de la bar de navigation active (indique sur quelle page se trouve l'utilisateur)*/
+.navbar >.container-fluid > .navbar-nav > .active{
+    background-color: #8c0001;
 }
 
+/*Couleur des liens de la bar de navigation quand la souris est dessus*/
+.navbar >.container-fluid > .navbar-nav > li > a:hover ,
+.navbar >.container-fluid > .navbar-nav > li > a:focus{
+    background-color: #630001;
+}
+
+/*Lien de la bar de navigation*/
+.navbar >.container-fluid > .navbar-nav > li > a{
+    color : #0f0f0f;
+    font-size: 18px;
+}
+
+
+/*--ID and Class--*/
+
+/*Div du contenu de la page*/
+.content {
+    background-color: white;
+    margin:  0 3% 30px 3%;
+    padding: 230px 1% 1% 1%;
+}
+
+/*Addaptre l'apparence a la taille de la page*/
+@media (min-width: 768px) {
+    .content {
+        padding: 140px 1% 1% 1%;
+    }
+}
+
+/*Div contenant le Header et la Nav*/
+#top{
+    margin: 0;
+    padding: 0;
+    /*--Froce la div à être en haut de la page--*/
+    position : fixed;
+    width: 100%;
+}
+
+/*Zone des information de connexion du l'utilisateur*/
+#loginData{
+    float: right;
+}
+
+/*Nom de l'utilisateur*/
+#loginData > h3{
+    margin: 0.5%;
+}
 /*--Classic Elements--*/
 
 body{
     background-color: #e2e2e2;
 }
 
+header{
+    height:80px;
+}
+
+header > h1{
+    margin: 0;
+    padding: 20px;
+}
+
 header, footer{
     background-color: #ff4b3f;
 }
 
-.content{
-    background-color: white;
-    margin: 0 3% !important;
+footer{
+    height: 30px;
+    text-align: center;
 }
