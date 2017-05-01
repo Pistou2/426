@@ -96,7 +96,7 @@ CREATE TABLE `t_user` (
   `useBirthday` date NOT NULL,
   `useEmail` varchar(150) NOT NULL,
   `useIsTeacher` tinyint(1) NOT NULL,
-  `fkClass` int(11) NOT NULL
+  `fkClass` int(11) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
