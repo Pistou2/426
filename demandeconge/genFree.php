@@ -2,7 +2,25 @@
 include "fpdf.php";
 
 $data = $_POST;
+// Le message
+$message = "Line 1\r\nLine 2\r\nLine 3";
 
+// Dans le cas où nos lignes comportent plus de 70 caractères, nous les coupons en utilisant wordwrap()
+$message = wordwrap($message, 70, "\r\n");
+
+$headers = 'From: webmaster@example.com' . "\r\n" .
+     'Reply-To: webmaster@example.com' . "\r\n" .
+     'X-Mailer: PHP/' . phpversion();
+
+// Envoi du mail
+try
+{
+mail('fasanoan@etml.educanet2.ch', "Salut maude c'estun text", $message.$headers);
+}
+catch(Exception $e)
+{
+	echo "envoie de mail echoué";
+}
 $count = 0;
 settype($login,"string");
  $i = 0;
